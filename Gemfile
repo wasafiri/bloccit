@@ -28,7 +28,8 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'faker'
 gem 'devise'
 gem 'figaro'
-gem 'letter_opener', group: :development
+gem 'pundit'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -49,4 +50,5 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'letter_opener'
 end
