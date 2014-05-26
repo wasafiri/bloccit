@@ -17,6 +17,7 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/application.example.yml
 
 # Ignore carrierwave default file storage
 public/uploads
