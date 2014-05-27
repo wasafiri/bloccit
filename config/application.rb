@@ -28,5 +28,3 @@ module Bloccit
     # config.i18n.default_locale = :de
   end
 end
-
-heroku labs:enable user-env-compile -a myapp
