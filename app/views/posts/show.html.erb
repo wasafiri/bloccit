@@ -16,4 +16,14 @@
         <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
     <% end %>
   </div>
+  <div class="comments">
+    <div class="col-md-8">
+    <% @post.comments.each do |comment| %>
+        Comment: <%= markdown comment.body %>
+    <% end %>
+    </div>
+  </div>
+  <div>
+    <%= render '/comments/form' %>
+  </div>
 </div>
