@@ -1,0 +1,16 @@
+<% if favorite = current_user.favorited(post) %>
+    Favorited
+<% else %>
+    Want to favorite this?
+<% end %>
+<% if policy(Favorite.new).create? %>
+<% if favorite = current_user.favorited(post) %>
+    <%= link_to [topic, post, favorite], class: 'btn btn-danger', method: :delete do %>
+        Unfavorite
+    <% end %>
+<% else %>
+<%= link_to [topic, post, Favorite.new], class: 'btn btn-primary', method: :post do %>
+        Favorite
+<% end %>
+<% end %>
+<% end %>

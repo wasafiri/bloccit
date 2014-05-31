@@ -1,0 +1,4 @@
+New comment to "<%= @post.title %>"
+By: <%= @comment.user.name %>
+<%= @comment.body %>
+<%= link_to "View Comment on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
