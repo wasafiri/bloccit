@@ -13,7 +13,9 @@
   </div>
   <div>
     <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
+    <div class='js-comments'>
     <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
