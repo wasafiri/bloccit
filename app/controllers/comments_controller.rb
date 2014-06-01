@@ -28,21 +28,23 @@ class CommentsController < ApplicationController
     authorize @comment
   end
 
-def destroy
-  @topic = Topic.find(params[:topic_id])
-  @post = @topic.posts.find(params[:post_id])
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.find(params[:post_id])
 
-  @comment = @post.comments.find(params[:id])
+    @comment = @post.comments.find(params[:id])
+    authorize @comment
 
-  authorize @comment
-  if @comment.destroy
-    flash[:notice] = "Comment was removed."
-    redirect_to [@topic, @post]
-  else
-    flash[:error] = "Comment couldn't be deleted. Try again."
-    redirect_to [@topic, @post]
+    if @comment.destroy
+      flash[:notice] = "Comment was removed."
+    else
+      flash[:error] = "Comment couldn't be deleted. Try again."
+    end
+
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
+    end
   end
-end
 
   private
 
