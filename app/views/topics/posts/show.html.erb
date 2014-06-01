@@ -11,6 +11,9 @@
             <%= markdown @post.body %>
     </p>
   </div>
+  <div>
+    <%= render partial: 'comments/comment', collection: @comments %>
+  </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
         <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
@@ -36,7 +39,7 @@
     </div>
   </div>
   <div>
-    <%= render '/comments/form' %>
+    <%= render partial: '/comments/form' %>
   </div>
 </div>
 
